@@ -1,0 +1,65 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #fff;
+    color: #333;
+    margin: 0;
+    padding: 0;
+}
+
+#tela-inicial, #tela-sangrenta, main {
+    display: none;
+}
+
+#tela-inicial {
+    text-align: center;
+    padding-top: 100px;
+}
+
+.borda-rosa {
+    border: 5px solid pink;
+    padding: 20px;
+    display: inline-block;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+.escondido {
+    display: none;
+}
+
+.passos {
+    display: none;
+}
+
+.passos.ativo {
+    display: block;
+}
+
+.btn-proximo {
+    margin-top: 20px;
+    padding: 10px 20px;
+    background-color: pink;
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s;
+}
+
+.btn-proximo:hover {
+    background-color: #ff66b2;
+}
+
+#tela-sangrenta img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+}
+
+#img-inicial {
+    max-width: 100%;
+    height: auto;
+}

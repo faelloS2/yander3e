@@ -1,17 +1,38 @@
-document.addEventListener("DOMContentLoaded", function() {
-    let telaInicial = document.getElementById('tela-inicial');
-    let telaSangrenta = document.getElementById('tela-sangrenta');
-    let imgInicial = document.getElementById('img-inicial');
-    let main = document.querySelector('main');
-    
-    window.addEventListener('keydown', function(event) {
-        if (event.key === 'Enter') {
-            telaInicial.style.display = 'none';
-            telaSangrenta.style.display = 'block';
-            main.classList.remove('escondido');
-            imgInicial.src = 'img/tela-inicial/protagonista-normal.png'; // Troca imagem da tela inicial
+document.addEventListener("DOMContentLoaded", () => {
+    const telaInicial = document.getElementById("tela-inicial");
+    const estadoNormal = document.getElementById("estado-normal");
+    const estadoSangrento = document.getElementById("estado-sangrento");
+    const jogo = document.getElementById("jogo");
+    const passos = document.querySelectorAll(".passo");
+    let passoAtual = 0;
+
+    // Transição da tela inicial
+    document.addEventListener("keydown", (e) => {
+        if (e.key === "Enter") {
+            estadoNormal.classList.add("escondido");
+            estadoSangrento.classList.remove("escondido");
         }
     });
 
-    main.classList.add('escondido');
+    document.addEventListener("keyup", (e) => {
+        if (e.key === "Enter") {
+            estadoSangrento.classList.add("escondido");
+            estadoNormal.classList.remove("escondido");
+            telaInicial.classList.add("escondido");
+            jogo.classList.remove("escondido");
+        }
+    });
+
+    document.querySelectorAll(".btn-proximo").forEach((botao) => {
+        botao.addEventListener("click", () => {
+            const proximoPasso = botao.dataset.proximo;
+            passos[passoAtual].classList.remove("ativo");
+            passos[proximoPasso].classList.add("ativo");
+            passoAtual = proximoPasso;
+        });
+    });
+
+    document.querySelector(".reiniciar").addEventListener("click", () => {
+        location.reload();
+    });
 });

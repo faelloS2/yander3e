@@ -3,71 +3,59 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/style.css">
-    <title>Jogo Yandere</title>
+    <link rel="stylesheet" href="style.css">
+    <title>Jogo Yandere - Escolhas</title>
 </head>
 <body>
     <div id="tela-inicial">
-        <div id="estado-normal">
-            <img src="img/ayano-inicial-normal.png" alt="Ayano Normal">
-            <p>Pressione e segure <strong>Enter</strong> para iniciar!</p>
-        </div>
-        <div id="estado-sangrento" class="escondido">
-            <img src="img/ayano-inicial-sangrenta.png" alt="Ayano Sangrenta">
-            <img src="img/sangue.png" alt="Sangue cobrindo a tela">
+        <div class="borda-rosa">
+            <p>Pressione <strong>Enter</strong> para iniciar</p>
         </div>
     </div>
 
-    <main id="jogo" class="escondido">
+    <div id="tela-sangrenta" class="escondido">
+        <img src="img/locais/sangue-transicao.png" alt="Sangue cobrindo a tela">
+    </div>
+
+    <main class="escondido">
         <div class="passo ativo" id="passo-0">
-            <img src="img/sala-de-aula.png" alt="Sala de Aula">
-            <p>Você quer conquistar Taro Yamada, mas descobre que Osana também está interessada nele. Escolha suas ações.</p>
-            <button class="btn-proximo" data-proximo="1">Conversar com Taro Yamada diretamente</button>
+            <img src="img/locais/sala-de-aula.png" alt="Sala de Aula">
+            <p>Você quer conquistar Ayato, mas descobre que Osana também está atrás dele. Escolha suas ações com cuidado.</p>
+            <button class="btn-proximo" data-proximo="1">Conversar com Ayato diretamente</button>
             <button class="btn-proximo" data-proximo="2">Seguir Osana secretamente</button>
         </div>
         <div class="passo" id="passo-1">
-            <img src="img/taro-yamada.png" alt="Taro Yamada">
-            <p>Você conversa com Taro, mas ele parece distraído. Ele menciona que Osana tem agido de forma estranha ultimamente.</p>
+            <img src="img/locais/sala-de-aula.png" alt="Sala de Aula">
+            <p>Você conversa com Ayato, mas ele parece distraído. Ele menciona algo estranho sobre Osana.</p>
             <button class="btn-proximo" data-proximo="3">Perguntar sobre Osana</button>
             <button class="btn-proximo" data-proximo="4">Mudar de assunto</button>
         </div>
         <div class="passo" id="passo-2">
-            <img src="img/corredor.png" alt="Corredor da Escola">
-            <p>Você segue Osana e a vê escrevendo algo em um bilhete. Ela o guarda rapidamente quando percebe sua presença.</p>
+            <img src="img/locais/corredor.png" alt="Corredor da Escola">
+            <p>Você segue Osana e a vê escrevendo algo em um bilhete. Ela o esconde na sua mochila antes de sair.</p>
             <button class="btn-proximo" data-proximo="5">Roubar o bilhete</button>
             <button class="btn-proximo" data-proximo="6">Confrontar Osana</button>
         </div>
         <div class="passo" id="passo-3">
-            <img src="img/taro-yamada.png" alt="Taro Yamada">
-            <p>Taro hesita antes de dizer que Osana está planejando algo importante relacionado ao festival escolar.</p>
-            <button class="btn-proximo" data-proximo="7">Investigar mais sobre o festival</button>
-            <button class="btn-proximo" data-proximo="8">Deixar para lá e focar em Taro</button>
+            <img src="img/locais/corredor.png" alt="Corredor da Escola">
+            <p>Ayato parece surpreso, mas hesita antes de dizer que Osana tem agido estranhamente.</p>
+            <button class="btn-proximo" data-proximo="7">Investigar mais sobre Osana</button>
+            <button class="btn-proximo" data-proximo="8">Ignorar e tentar conquistar Ayato</button>
         </div>
         <div class="passo" id="passo-4">
-            <img src="img/taro-yamada.png" alt="Taro Yamada">
-            <p>Taro sorri levemente enquanto vocês conversam casualmente sobre outros assuntos.</p>
-            <button class="btn-proximo" data-proximo="7">Planejar um encontro com Taro</button>
-            <button class="btn-proximo" data-proximo="8">Voltar sua atenção para Osana</button>
+            <img src="img/locais/sala-de-aula.png" alt="Sala de Aula">
+            <p>Ayato sorri levemente, mas parece aliviado por você ter mudado de assunto. Vocês começam a conversar mais casualmente.</p>
+            <button class="btn-proximo" data-proximo="9">Planejar um encontro com Ayato</button>
+            <button class="btn-proximo" data-proximo="10">Voltar para investigar Osana</button>
         </div>
         <div class="passo" id="passo-5">
-            <img src="img/bilhete.png" alt="Bilhete">
-            <p>Você encontra o bilhete. Ele revela que Osana tem sentimentos por Taro e planeja se declarar no festival.</p>
-            <button class="btn-proximo" data-proximo="7">Usar o bilhete contra Osana</button>
-            <button class="btn-proximo" data-proximo="8">Confrontar Taro com o bilhete</button>
-        </div>
-        <div class="passo" id="passo-6">
-            <img src="img/osana-normal.png" alt="Osana">
-            <p>Osana nega estar escondendo algo, mas fica visivelmente nervosa. Você sente que ela está mentindo.</p>
-            <button class="btn-proximo" data-proximo="7">Espiar Osana mais tarde</button>
-            <button class="btn-proximo" data-proximo="8">Deixá-la em paz por agora</button>
-        </div>
-        <div class="passo" id="passo-7">
-            <img src="img/osana-corada.png" alt="Osana Corada">
-            <p>Osana descobre que você sabe sobre o bilhete e fica desesperada, implorando para que você acredite nela.</p>
-            <button class="btn-proximo" data-proximo="8">Ameaçá-la</button>
-            <button class="btn-proximo" data-proximo="8">Fingir estar do lado dela</button>
+            <img src="img/locais/sala-de-aula.png" alt="Sala de Aula">
+            <p>Você encontra o bilhete. Ele menciona um segredo que pode comprometer Ayato. Osana parece estar planejando algo perigoso.</p>
+            <button class="btn-proximo" data-proximo="11">Confrontar Ayato</button>
+            <button class="btn-proximo" data-proximo="12">Usar o bilhete contra Osana</button>
         </div>
     </main>
-    <script src="js/script.js"></script>
+
+    <script src="script.js"></script>
 </body>
-  </html>
+</html>

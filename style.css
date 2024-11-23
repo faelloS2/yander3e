@@ -1,55 +1,56 @@
 body {
-    margin: 0;
     font-family: Arial, sans-serif;
+    background-color: #ffccff;
     text-align: center;
-    background-color: #ffe4e1;
 }
 
-.tela, main {
-    width: 100%;
+#tela-inicial {
+    display: flex;
+    justify-content: center;
+    align-items: center;
     height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
+    background-color: pink;
 }
 
-#tela-inicial img, .passo img {
-    width: 300px;
-    height: auto;
-}
-
-#estado-normal, #estado-sangrento {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-}
-
-#estado-sangrento img.sangue {
+#tela-sangrenta {
+    display: none;
     position: absolute;
     top: 0;
+    left: 0;
     width: 100%;
     height: 100%;
+    background-color: black;
 }
 
 .escondido {
     display: none;
 }
 
+.borda-rosa {
+    padding: 20px;
+    border: 5px solid #ff00ff;
+}
+
+main {
+    padding: 20px;
+}
+
+.passo {
+    display: none;
+}
+
+.passo.ativo {
+    display: block;
+}
+
 button {
-    margin-top: 20px;
-    padding: 10px 20px;
-    background-color: #ff69b4;
+    background-color: #ff00ff;
     border: none;
-    color: white;
-    font-size: 16px;
+    padding: 10px 20px;
+    margin: 10px;
     cursor: pointer;
 }
 
 button:hover {
-    background-color: #ff1493;
+    background-color: #ff66ff;
 }

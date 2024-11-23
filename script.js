@@ -1,38 +1,35 @@
-document.addEventListener("DOMContentLoaded", () => {
-    const telaInicial = document.getElementById("tela-inicial");
-    const estadoNormal = document.getElementById("estado-normal");
-    const estadoSangrento = document.getElementById("estado-sangrento");
-    const jogo = document.getElementById("jogo");
-    const passos = document.querySelectorAll(".passo");
-    let passoAtual = 0;
+let passos = document.querySelectorAll('.passo');
+let botaoProximo = document.querySelectorAll('.btn-proximo');
+let telaInicial = document.getElementById('tela-inicial');
+let telaSangrenta = document.getElementById('tela-sangrenta');
 
-    // Transição da tela inicial
-    document.addEventListener("keydown", (e) => {
-        if (e.key === "Enter") {
-            estadoNormal.classList.add("escondido");
-            estadoSangrento.classList.remove("escondido");
-        }
-    });
+let passoAtual = 0;
 
-    document.addEventListener("keyup", (e) => {
-        if (e.key === "Enter") {
-            estadoSangrento.classList.add("escondido");
-            estadoNormal.classList.remove("escondido");
-            telaInicial.classList.add("escondido");
-            jogo.classList.remove("escondido");
-        }
-    });
-
-    document.querySelectorAll(".btn-proximo").forEach((botao) => {
-        botao.addEventListener("click", () => {
-            const proximoPasso = botao.dataset.proximo;
-            passos[passoAtual].classList.remove("ativo");
-            passos[proximoPasso].classList.add("ativo");
-            passoAtual = proximoPasso;
-        });
-    });
-
-    document.querySelector(".reiniciar").addEventListener("click", () => {
-        location.reload();
+botaoProximo.forEach(botao => {
+    botao.addEventListener('click', () => {
+        let proximoPasso = botao.getAttribute('data-proximo');
+        showPasso(proximoPasso);
     });
 });
+
+document.addEventListener('keydown', (e) => {
+    if (e.key === 'Enter') {
+        telaInicial.style.display = 'none';
+        telaSangrenta.style.display = 'block';
+    }
+});
+
+document.addEventListener('keyup', (e) => {
+    if (e.key === 'Enter') {
+        telaSangrenta.style.display = 'none';
+        showPasso(passoAtual);
+    }
+});
+
+function showPasso(pass) {
+    passoAtual = pass;
+    passos.forEach(passo => {
+        passo.classList.remove('ativo');
+    });
+    document.getElementById(`passo-${pass}`).classList.add('ativo');
+}
